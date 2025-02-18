@@ -1,0 +1,1036 @@
+element.style {
+    --border-width: 100%;
+    --line-bg: #ffffff00;
+    --clip-scale: 0;
+    --initialOverdlow: visible;
+  }
+  
+  .html.lenis {
+    height: auto;
+  }
+  
+  html {
+    font-size: 75%;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  @font-face {
+    font-family: 'Bubble';
+    src: url('Fonts/Bubble-w10MZ.otf');
+  }
+  
+  @font-face {
+    font-family: 'Helmet';
+    src: url('Fonts/Helmet-lWZV.otf');
+  }
+  
+  @keyframes moveBackground {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 0% 20%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+  
+  body {
+    background: url('bg/waves1.svg') no-repeat center center;
+    background-size: cover;
+    animation: moveBackground 5s ease-in-out infinite;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    line-height: normal;
+  }
+  
+  .bubble {
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    animation: floatUp 3s ease-in-out forwards;
+  }
+  
+  @keyframes floatUp {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100px);
+      opacity: 0;
+    }
+  }
+  
+  .sparkle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+    animation: sparkleFade 0.5s ease-out;
+  }
+  
+  @keyframes sparkleFade {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+  }
+  
+  /* NAVIGATION (Menu) */
+  nav.menu {
+    position: relative;
+    width: 97%; /* Slightly narrower than 100% for centering */
+    background-color: #f8f4f4;
+    border-radius: 20px;
+    height: 90px; /* Increased height for a bigger menu */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    font-size: 30px; /* Increased font size */
+    color: #1e1c23;
+    font-family: 'Helmet', sans-serif; /* Using Helmet font */
+    margin: 20px auto;
+  }
+  
+  /* HEADER SECTION */
+  .princess-header {
+    display: flex;
+    justify-content: flex-start; /* Logo on the left */
+    align-items: center;
+    height: 110px;
+    width: 100%;
+    color: #fff;
+    font-family: 'Helmet', sans-serif; /* Changed to Helmet font */
+    font-size: 70px;
+    padding: 0 20px;
+    background-color: #001220;
+    position: relative;
+    z-index: 10;
+    margin: 0 auto;
+  }
+  
+  /* "Princess" Logo */
+  .princess {
+    order: 1; /* Logo on the left */
+    font-size: 70px;
+    margin-left: 20px;
+    padding: 10px;
+  }
+  
+  /* Navigation Links */
+  .menu-parent {
+    order: 2; /* Menu links on the right */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  nav.menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 2rem;
+    transition: color 0.3s ease;
+  }
+  
+  nav.menu a:hover {
+    color: #fb469a;
+  }
+  
+  nav.menu a.home {
+    color: #fb469a;
+  }
+  
+  /* Hamburger icon initially hidden on larger screens */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    align-items: flex-end;
+    margin-left: auto; /* Pushes to the right */
+    position: absolute;
+    right: 20px; /* Ensures it's at the right edge */
+  }
+  
+  .hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #1e1c23;
+    border-radius: 2px;
+  }
+  
+  /* Tablet and below */
+  @media (max-width: 768px) {
+    /* Show hamburger, hide menu links by default */
+    .hamburger {
+      display: flex;
+    }
+  
+    .menu-parent {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 10px;
+      width: 100%;
+    }
+  
+    /* When active, show the menu */
+    .menu-parent.active {
+      display: flex;
+    }
+  
+    nav.menu {
+      flex-direction: column;
+      align-items: flex-start;
+      height: auto;
+      padding: 10px;
+    }
+  }
+  
+  /* Phone / Extra Small */
+  @media (max-width: 430px) {
+    .princess {
+      font-size: 40px;
+    }
+  
+    .menu-parent a {
+      font-size: 1.2rem;
+    }
+  }
+  
+  /* sa experience */
+/* BASE STYLES */
+.experience {
+    align-self: stretch;
+    position: relative;
+}
+
+.graphics-designer {
+    position: relative;
+}
+
+.uiux-designer {
+    width: 250px;
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.graphics-designer-parent {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 54px;
+    font-family: Helvetica;
+}
+
+.experience-parent {
+    width: 100%;  /* Make it responsive */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-left: 20px;
+}
+
+.wrapper {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: Helvetica;
+}
+
+.date-parent {
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-right: 20px;
+}
+
+.frame-parent {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    font-size: 30px;
+    color: #fff;
+    font-family: 'Helmet', sans-serif;
+    padding-bottom: 0;
+}
+
+/* ====================== */
+/* RESPONSIVE STYLES */
+/* ====================== */
+
+/* 📌 Tablet View (max-width: 768px) */
+@media (max-width: 768px) {
+    .experience-parent {
+        width: 100%;
+        margin-left: 5px;
+        gap: 6px;
+        font-size: 18px; /* Adjust font size for readability */
+    }
+
+    .graphics-designer-parent {
+        gap: 20px;
+        flex-wrap: wrap; /* Ensure items don't overflow */
+        justify-content: center;
+        text-align: center;
+    }
+
+    .uiux-designer {
+        width: 200px;
+        text-align: center;
+    }
+
+    .frame-parent {
+        flex-direction: column;
+        font-size: 24px;
+        gap: 15px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .wrapper {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .date-parent {
+        width: auto;
+        margin-right: 0;
+        margin-left: 0;
+        gap: 6px;
+        text-align: center;
+        font-size: 16px;
+    }
+}
+
+/* 📌 Phone View (max-width: 480px) */
+@media (max-width: 480px) {
+    .experience-parent {
+        margin-left: 5px;
+        gap: 4px;
+        font-size: 16px;
+    }
+
+    .graphics-designer-parent {
+        gap: 10px;
+        text-align: center;
+    }
+
+    .uiux-designer {
+        width: 150px;
+    }
+
+    .frame-parent {
+        font-size: 20px;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .wrapper {
+        gap: 5px;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .date-parent {
+        font-size: 14px;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+
+  
+  /* BANNER */
+  .name-banner {
+    width: 97%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: auto;
+    margin-top: -55px;
+    margin-bottom: 150px;
+    padding: 0 auto;
+  }
+  
+  .logo {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  @media (max-width: 768px) {
+    .logo {
+      object-fit: contain;
+    }
+  }
+  
+  /* About Me */
+  .about-me-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center;
+    padding: 20px 10px;
+    width: 100%;
+    margin-top: -65px;
+    margin-bottom: 90px;
+  }
+  
+  .picture-parent {
+    display: flex;
+    align-items: center;
+    gap: 80px; /* Keep space between image and text */
+    flex-wrap: wrap;
+    max-width: 1200px; /* Maintain a large container */
+    width: 100%;
+  }
+  
+  .picture {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    filter: drop-shadow(0 0 10px #fb469a);
+  }
+  
+  .n-1-icon {
+    width: 450px; /* Keeping your large image size */
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .about-me-parent {
+    flex: 1;
+    max-width: 600px; /* Keep large text block */
+    text-align: left;
+    font-family: 'Helmet', Arial, sans-serif;
+  }
+  
+  .about-me {
+    font-size: 35px; /* Keeping your large title */
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .about-princess {
+    font-size: 22px; /* Keeping large text */
+    color: white;
+    line-height: 1.8;
+    font-style: normal;
+    font-size: 20px;
+  }
+  
+  .see-more-wrapper {
+    margin-top: 20px;
+  }
+  
+  .see-more {
+    position: relative;
+    overflow: hidden;
+    height: 3rem;
+    padding: 0 2rem;
+    border-radius: 1.5rem;
+    background: #771941e1;
+    background-size: 400%;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.475s ease-in-out;
+    z-index: 1; /* Ensure the button content is above its pseudo-element */
+    font-family: 'Helmet';
+  }
+  
+  .see-more::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    width: 100%;
+    height: 100%; /* Make sure it fully covers the button */
+    border-radius: inherit;
+    background: linear-gradient(
+      82.3deg,
+      rgba(255, 0, 72, 0.952) 10.8%,
+      rgba(255, 0, 89, 0.756) 94.3%
+    );
+    transition: transform 0.475s ease-in-out;
+    z-index: -1; /* Pseudo-element sits behind the button text */
+  }
+  
+  .see-more:hover::before {
+    transform: scaleX(1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 900px) {
+    .picture-parent {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .about-me-parent {
+      max-width: 100%;
+    }
+  
+    .n-1-icon {
+      width: 400px;
+    }
+  
+    .about-me {
+      font-size: 30px;
+    }
+  
+    .princess-mikaela-e {
+      font-size: 20px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .n-1-icon {
+      width: 350px;
+    }
+  
+    .about-me {
+      font-size: 28px;
+    }
+  
+    .about-princess {
+      font-size: 18px;
+    }
+  
+    .see-more {
+      padding: 12px 30px;
+      font-size: 16px;
+    }
+  }
+  
+  /* Overlay (Base) */
+  #overlay {
+    display: none; /* tago */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+  }
+  
+  #overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Container for the overlay content */
+  .about-me-overlay-container {
+    background: #1a1a1a;
+    max-width: 700px; /* Increase max-width so it can grow bigger on desktop screens */
+    width: 90%; /* Ensures it scales on smaller screens */
+    padding: 40px; /* More padding for comfortable spacing */
+    border-radius: 40px;
+    color: white;
+    text-align: center;
+    font-family: 'Helmet', Arial, sans-serif;
+    position: relative; /* If you need absolutely positioned elements inside */
+    max-height: 80vh; /* 80% of the viewport height */
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
+  
+  /* Heading text */
+  .about-me-overlay {
+    font-size: 29px;
+    font-weight: bold;
+    color: #ff69b4;
+  }
+  
+  /* Subtitle styling */
+  .subtitle {
+    font-style: italic;
+    font-family: 'Google Sans', sans-serif;
+  }
+  
+  /* Main text body */
+  .more-about {
+    font-family: 'Google Sans', sans-serif;
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 1.6;
+    margin-top: 15px; /* Extra spacing for readability */
+  }
+  
+  /* Close button */
+  #close-overlay {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: palevioletred;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+  }
+  
+  /* =========================
+     RESPONSIVE STYLES
+     ========================= */
+  
+  /* Tablet (max-width: 768px) */
+  @media (max-width: 768px) {
+    .about-me-overlay-container {
+      max-width: 90%; /* Reduce width to fit smaller screens */
+      padding: 20px;
+      border-radius: 30px; /* Slightly smaller radius */
+    }
+  
+    #close-overlay {
+      top: 15px;
+      right: 15px;
+      font-size: 16px; /* Slightly smaller text */
+      padding: 8px;
+    }
+  
+    .about-me-overlay {
+      font-size: 24px; /* Scale down heading text */
+    }
+  
+    .more-about {
+      font-size: 0.95rem;
+    }
+  }
+  
+  /* Phone (max-width: 480px) */
+  @media (max-width: 480px) {
+    .about-me-overlay-container {
+      max-width: 90%; /* Ensures the overlay content fits on mobile */
+      padding: 15px;
+      border-radius: 20px;
+    }
+  
+    #close-overlay {
+      top: 10px;
+      right: 10px;
+      font-size: 14px;
+      padding: 6px;
+    }
+  
+    .about-me-overlay {
+      font-size: 20px;
+    }
+  
+    .more-about {
+      font-size: 0.85rem;
+    }
+  }
+  
+  /* RECOMMENDATION SECTION */
+  .recommendation {
+    width: 587px;
+    position: relative;
+    text-align: left;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Google Sans', sans-serif;
+  }
+  
+  .rec-header {
+    font-size: 3.0rem;
+    font-family: Helmet;
+    color: #fff;
+  }
+  
+  .pfp {
+    width: 50px;
+    position: relative;
+    height: 50px;
+    border-radius: 50px;
+  }
+  
+  .reccomendation-text {
+    font-size: 1.8rem;
+    width: 400px;
+    position: relative;
+    font-weight: 500;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  
+  .name-of-rec {
+    font-size: 1.8rem;
+    width: 300px;
+    position: relative;
+    font-weight: 500;
+    text-align: right;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  
+  .rec-container {
+    width: 500px;
+    border-radius: 90px;
+    background-color: #f8f4f4;
+    height: 200px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+    gap: 10px;
+  }
+  
+  .carousel {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    font-size: 48px;
+    color: #000;
+    font-family: 'Google Sans';
+    cursor: grab;
+    padding: 10px;
+    margin: 0 auto;
+  }
+  
+  /* FOOTER */
+  .pink-box {
+    width: 100%;
+    background-color: #ff69b4;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+  }
+  
+  .footer {
+    width: 90%;
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    color: #ffffff;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 16px;
+  }
+  
+  .contact-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  .contact {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .socials-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .icon-parent {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .facebook-icon,
+  .instagram-icon,
+  .github-icon {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  /* Responsive styles for screens up to 430px */
+  @media (max-width: 430px) {
+    .footer {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      font-size: 14px;
+    }
+  
+    .contact-parent {
+      align-items: center;
+      gap: 3px;
+      margin-bottom: 10px;
+    }
+  
+    .icon-parent {
+      gap: 10px;
+    }
+  }
+  
+  /* HOVER EFFECT */
+  .facebook-icon:hover,
+  .instagram-icon:hover,
+  .github-icon:hover {
+    transform: scale(1.1);
+  }
+  
+  .footer-note {
+    font-size: 14px;
+    text-align: right;
+    margin-top: 10px;
+  }
+  
+  .fade-in {
+    opacity: 0;
+    transform: translatey(150px);
+    transition: all 1s ease-in-out;
+    transition-delay: 0.4s;
+  }
+  
+  .fade-in.visible {
+    opacity: 1;
+    transform: translatey(0);
+  }
+  
+  .animation {
+    opacity: 0;
+    transform: translatex(200px);
+    transition: all 2s ease-in-out;
+    transition-delay: 0.5s;
+  }
+  
+  .animation.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  /* Ensure everything is centered on larger mobile screens */
+@media (max-width: 761px) {
+    .frame-parent {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .experience-parent {
+        width: 90%;
+        max-width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .graphics-designer-parent {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .uiux-designer {
+        width: auto;
+        text-align: center;
+    }
+
+    .date-parent {
+        text-align: center;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    /* Ensure the logo and header are centered */
+    .princess-header {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .princess {
+        text-align: center;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    /* About me section fix */
+    .about-me-container {
+        width: 90%;
+        max-width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .picture-parent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .picture {
+        width: auto;
+        max-width: 90%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #overlay {
+        width: 55%;
+        max-width: 100%;
+        margin: 0 auto;
+        font-size: smaller;
+    }
+
+    .close-overlay {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .footer{
+        font-size: 10px;
+    }
+
+    .footer-note {
+        font-size: 8px;
+    }
+
+    .socials-parent {
+       font-size: x-small;
+    }
+
+    .name-banner {
+        height: auto; /* Adjust for smaller screens */
+        padding: 80px 0;
+      }
+      
+      .logo {
+        max-width: 80%;
+      }
+
+      .rec-container{
+        width: 350px;
+        border-radius: 90px;
+        background-color: #f8f4f4;
+        height: 150px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-content: center;
+        padding: 20px;
+        box-sizing: border-box;
+        gap: 10px;
+      }
+
+      .reccomendation-text{
+        font-size: 1.2rem;
+        width: 300px;
+        position: relative;
+        font-weight: 500;
+        display: inline-block;
+        flex-shrink: 0;
+      }
+
+      .name-of-rec{
+        font-size: 1.2rem;
+        width: 200px;
+        position: relative;
+        font-weight: 500;
+        text-align: right;
+        display: inline-block;
+        flex-shrink: 0;
+      }
+
+      .carousel{
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+        font-size: 24px;
+        color: #000;
+        font-family: 'Google Sans';
+        cursor: grab;
+        padding: 10px;
+        margin: 0 auto;
+      }
+      
+    
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glowing Bubbles & Sparkle Trail</title>
+    <style>
+        body {
+            background-color: #ffb6c1; /* Soft pink ocean */
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            animation: floatUp 3s ease-in-out forwards;
+        }
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+        }
+        .sparkle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+            animation: sparkleFade 0.5s ease-out;
+        }
+        @keyframes sparkleFade {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener("click", function (event) {
+            for (let i = 0; i < 3; i++) {
+                const bubble = document.createElement("div");
+                bubble.className = "bubble";
+                const size = Math.random() * 20 + 20; // Random size between 20px and 40px
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${event.clientX - size / 2}px`;
+                bubble.style.top = `${event.clientY - size / 2}px`;
+                bubble.style.background = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.5})`;
+                document.body.appendChild(bubble);
+                setTimeout(() => bubble.remove(), 3000);
+            }
+        });
+
+        document.addEventListener("mousemove", function (event) {
+            const sparkle = document.createElement("div");
+            sparkle.className = "sparkle";
+            sparkle.style.left = `${event.clientX}px`;
+            sparkle.style.top = `${event.clientY}px`;
+            document.body.appendChild(sparkle);
+            setTimeout(() => sparkle.remove(), 500);
+        });
+    </script>
+</body>
+</html>

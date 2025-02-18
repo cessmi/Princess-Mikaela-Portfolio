@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whale Loading Screen</title>
+    <style>
+        /* Fullscreen Loader */
+        #loading-screen {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #001220; /* Dark Ocean Color */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            font-family: 'Arial', sans-serif;
+            z-index: 9999;
+            transition: opacity 1s ease-in-out;
+            overflow: hidden;
+        }
+
+        /* Water Background */
+        #water {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            background: url('bg/waves1.svg') repeat-x bottom;
+            animation: waveMotion 3s infinite linear;
+        }
+
+        /* Whale SVG */
+        #whale {
+            width: 150px;
+            height: auto;
+            animation: flail 1.5s ease-in-out infinite alternate, fillUp 3s ease-in-out forwards;
+        }
+
+        /* Text Animation */
+        .loading-text {
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out infinite alternate;
+        }
+
+        /* Splash Effect */
+        .splash {
+            position: absolute;
+            bottom: 90px;
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            transform: scale(0);
+            opacity: 0;
+            transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+        }
+
+        /* Whale Flailing Animation */
+        @keyframes flail {
+            0% { transform: rotate(5deg) translateY(0); }
+            100% { transform: rotate(-5deg) translateY(-5px); }
+        }
+
+        /* Filling Animation */
+        @keyframes fillUp {
+            0% { fill: transparent; stroke-dasharray: 0, 200; }
+            50% { fill: rgba(255, 105, 180, 0.5); stroke-dasharray: 150, 50; }
+            100% { fill: #ff69b4; stroke-dasharray: 200, 0; }
+        }
+
+        /* Water Movement */
+        @keyframes waveMotion {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 0%; }
+        }
+
+        /* Move Whale Down into the Ocean */
+        @keyframes dive {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+
+        /* Water Reacting to Whale */
+        @keyframes splashEffect {
+            0% { transform: scale(0); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.8; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+
+        /* Fade in Text */
+        @keyframes fadeIn {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        /* Main Content (Hidden Initially) */
+        #main-content {
+            display: none;
+            text-align: center;
+            padding: 100px;
+            font-size: 24px;
+            color: white;
+            background: url('bg/waves1.svg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <svg id="whale" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+            <!-- Whale Body -->
+            <path id="whale-body" d="M10,50 Q50,-10 100,50 T190,50" stroke="#ff69b4" stroke-width="5" fill="transparent"/>
+        </svg>
+        <p class="loading-text">Loading...</p>
+        <div id="water"></div>
+        <div class="splash" id="splash"></div> <!-- Splash Effect -->
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <h1>Welcome to the Ocean!</h1>
+        <p>The whale has dived, and now you can explore.</p>
+    </div>
+
+    <script>
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                // Start whale dive animation
+                document.getElementById("whale").style.animation = "dive 2s ease-in-out forwards";
+
+                // Trigger splash effect
+                let splash = document.getElementById("splash");
+                splash.style.opacity = "1";
+                splash.style.transform = "scale(1)";
+
+                // Apply splash animation
+                splash.style.animation = "splashEffect 0.6s ease-out";
+
+                // Fade out loading screen after the animation
+                setTimeout(() => {
+                    document.getElementById("loading-screen").style.opacity = "0";
+                    setTimeout(() => {
+                        document.getElementById("loading-screen").style.display = "none";
+                        document.getElementById("main-content").style.display = "block";
+                    }, 1000);
+                }, 2000);
+            }, 3000); // 3 seconds to allow flail animation
+        });
+    </script>
+
+</body>
+</html>
